@@ -1,0 +1,15 @@
+.panel .panel-heading.gh-menu-heading {
+  background: #3F3F3F;
+  color: #ffffff;
+}
+.glyphicon-op :hover {
+  background: #3F3F3F;
+  color: #ffffff;
+}
+.menu-title {
+  max-width: 70%;
+  display: inline-block;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  overflow: hidden;
+}

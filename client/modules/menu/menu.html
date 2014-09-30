@@ -1,0 +1,81 @@
+<div ng-if="menuMsg && !menuError" class="alert alert-success" role="alert">{{menuMsg}}</div>
+<div ng-if="menuError && !menuMsg" class="alert alert-danger" role="alert">{{menuError}}</div>
+<div class="row">
+    <div class="col-md-8 col-xs-12">
+        <div class="panel panel-success">
+            <div class="panel-heading gh-menu-heading">
+                <h3 class="panel-title">菜单预览</h3>
+            </div>
+            <div class="panel-body" style="min-height: 30em;">
+            </div>
+            <div class="btn-group btn-group-justified">
+                <div class="btn-group dropup" ng-repeat="button in menus.menu.button" id="{{button.key}}" ng-init="parentIndex = $index">
+                    <button type="button " class="btn btn-default" data-toggle="dropdown">
+                        <span class="menu-title">{{button.name}}</span>
+                        <i ng-click="bindForm($index)" class="glyphicon-op glyphicon glyphicon-pencil pull-right"></i>
+                    </button>
+                    <ul ng-if="!!button.sub_button" class="dropdown-menu" role="menu">
+                        <li><a href="#" ng-click="addSubButton($index)">新建菜单</a></li>
+                        <li class="divider"></li>
+                        <li ng-repeat="subButton in button.sub_button" >
+                            <a>
+                                <span class="menu-title">{{subButton.name}}</span>
+                                <i ng-click="bindForm(parentIndex, $index)" class="glyphicon glyphicon-pencil pull-right"></i>
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="col-md-4 col-xs-12">
+        <form role="form" >
+            <div class="form-group">
+                <label for="button_name">菜单标题</label>
+                <input type="title" class="form-control" id="button_name" placeholder="不超过8个汉字" ng-model="currentMenu.name">
+            </div>
+            <div class="form-group">
+                <label>菜单类型</label>
+                <div>
+                    <div class="btn-group">
+                        <label class="btn btn-default {{currentMenu.type == 'click'&&'active'||''}}">
+                            <input style="display: none;" type="radio" name="button_type" autocomplete="off" value="click"
+                            {{currentMenu.type == 'click'&&'checked'||''}} ng-model="currentMenu.type">
+                            点击事件
+                        </label>
+                        <label class="btn btn-default {{currentMenu.type == 'view'&&'active'||''}}">
+                            <input style="display: none;" type="radio" name="button_type" autocomplete="off" value="view"
+                            {{currentMenu.type == 'view'&&'checked'||''}} ng-model="currentMenu.type">
+                            打开链接
+                        </label>
+                    </div>
+                </div>
+            </div>
+            <div class="form-group" >
+                <label for="button_name">事件KEY</label>
+                <textarea type="title" ng-disabled="currentMenu.type == 'view'"
+                       class="form-control" placeholder="不超过128个字符" ng-model="currentMenu.key"></textarea>
+            </div>
+            <div class="form-group">
+                <label for="button_name">菜单链接</label>
+                <textarea type="title" ng-disabled="currentMenu.type == 'click'"
+                       class="form-control" placeholder="不超过256字符" ng-model="currentMenu.url"></textarea>
+            </div>
+            <button type="button" class="btn btn-danger btn-xs" ng-click="remove()">
+                <i class="glyphicon glyphicon-trash" style="margin: 0 0.5em 0 0"/><b>删除菜单{{currentMenu.name}}</b>
+            </button>
+        </form>
+    </div>
+    <div class="col-md-12 col-xs-12">
+        <div class="btn-group">
+            <button type="button" class="btn btn-primary btn-sm" ng-click="publish()">
+                <i class="glyphicon glyphicon-refresh" style="margin: 0 0.5em 0 0"/><b>同步</b>
+            </button>
+        </div>
+        <div class="btn-group">
+            <button type="button" ng-disabled="menus.menu.button.length == 3" class="btn btn-primary btn-sm" ng-click="addButton()">
+                <i class="glyphicon glyphicon-plus" style="margin: 0 0.5em 0 0"/><b>新建一级菜单</b>
+            </button>
+        </div>
+    </div>
+</div>
