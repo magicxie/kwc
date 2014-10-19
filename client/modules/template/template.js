@@ -5,16 +5,16 @@
  */
 
 angular
-    .module('wechat.menu', [
+    .module('wechat.template', [
       'ngRoute',
       'koan.common',
       'wechat.common'
     ])
     .config(function ($routeProvider) {
       $routeProvider
-          .when('/menus', {
+          .when('/templates', {
             title: '自定义菜单',
-            templateUrl: 'modules/menu/template.html',
-            controller: 'MenuCtrl'
+            templateUrl: 'modules/template/template.html',
+            controller: 'TemplateCtrl'
           });
     });
