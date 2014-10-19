@@ -21,7 +21,7 @@ var platformConfig = {
       port: 3000
     },
     mongo: {
-      url: 'mongodb://cloud.eggcanfly.net:27017/koan-dev'
+      url: 'mongodb://url'
     },
     oauth: {
       facebook: {
@@ -36,9 +36,9 @@ var platformConfig = {
       }
     },
     wechat:{
-        token : '233333',
-        appID : 'wx64e0a220606bf6da',
-        appsecret : '30883472e6b4e5150239d992f0eb3994'
+        token : 'token',
+        appID : 'appID',
+        appsecret : 'appsecret'
     }
   },
 
@@ -47,12 +47,12 @@ var platformConfig = {
       port: 3001
     },
     mongo: {
-      url: 'mongodb://localhost:27017/koan-test'
+      url: 'mongodb://url:27017/d'
     },
       wechat:{
-          token : '233333',
-          appID : 'wx64e0a220606bf6da',
-          appsecret : '30883472e6b4e5150239d992f0eb3994'
+          token : 'token',
+          appID : 'appID',
+          appsecret : 'appsecret'
       }
   },
 
@@ -77,9 +77,9 @@ var platformConfig = {
       }
     },
       wechat:{
-          token : '233333',
-          appID : 'wx64e0a220606bf6da',
-          appsecret : '30883472e6b4e5150239d992f0eb3994'
+          token : 'token',
+          appID : 'appID',
+          appsecret : 'appsecret'
       }
   }
 };
