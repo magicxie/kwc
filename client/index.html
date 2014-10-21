@@ -105,10 +105,11 @@
         <li ng-class="common.active.user"><a href="/users"><span class="glyphicon glyphicon-user"></span> 用户</a></li>
         <li ng-class="common.active.message"><a href="/messages"><span class="glyphicon glyphicon-comment"></span> 消息</a></li>
         <li ng-class="common.active.menu"><a href="/menus"><span class="glyphicon glyphicon-list"></span> 菜单</a></li>
+        <li ng-class="common.active.template"><a href="/templates"><span class="glyphicon glyphicon-transfer"></span> 消息模板</a></li>
       </ul>
     </div>
 
-    <div class="col-md-7" ng-view></div>
+    <div class="col-md-10" ng-view></div>
 
     <div class="col-md-3"></div>
   </div>
@@ -138,5 +139,7 @@
 <script src="/modules/profile/profile-controller.js"></script>
 <script src="/modules/menu/menu.js"></script>
 <script src="/modules/menu/menu-controller.js"></script>
+<script src="/modules/template/template.js"></script>
+<script src="/modules/template/template-controller.js"></script>
 </body>
 </html>

@@ -51,6 +51,11 @@ module.exports = function (app) {
   // mount all the routes defined in the api controllers
   fs.readdirSync('./server/controllers').forEach(function (file) {
      console.log('init controllers' , file);
-    require('../controllers/' + file).init(app);
+      try{
+          require('../controllers/' + file).init(app);
+      }catch(e){
+          console.error(e);
+      }
+
   });
 };

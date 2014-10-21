@@ -10,7 +10,8 @@ angular
       'koan.common',
       'koan.home',
       'koan.profile',
-      'wechat.menu'
+      'wechat.menu',
+      'wechat.template'
 
     ])
 
